@@ -9,14 +9,16 @@ class BookStore extends Component {
     state = {
         booklist: [],
         isAdd: null,
-        isEdit: null
+        isEdit: null,
+        filteredId: null,
     }
 
     getDatabase = () => {
         this.setState({
             booklist: Database.data,
             isAdd: false,
-            isEdit: false
+            isEdit: false,
+            filteredId: "",
         })
     }
 
@@ -26,9 +28,10 @@ class BookStore extends Component {
         })
     }
 
-    editToBookList = (index) => {
+    editToBookList = (itemId) => {
         this.setState({
-            isEdit: index
+            isEdit: true,
+            filteredId: itemId
         })
     }
 
@@ -43,7 +46,7 @@ class BookStore extends Component {
 
 
     render() {
-        const { booklist, isAdd, isEdit } = this.state;
+        const { booklist, isAdd, isEdit, filteredId } = this.state;
         return (
             <div className="container">
                 <header className="header block">
@@ -65,19 +68,22 @@ class BookStore extends Component {
                             return (
                                 <ul className="table" key={index}>
                                     <li className="table__list">
-                                        <button className="btn__link" onClick={() => this.editToBookList(index)}>{item.name}</button>
+                                        <button className="btn__link" onClick={() => this.editToBookList(item.id)}>{item.name}</button>
                                     </li>
-                                    <li className="table__list">{"$"+item.price}</li>
+                                    <li className="table__list">{"$" + item.price}</li>
                                     <li className="table__list">{item.category}</li>
                                     <li className="table__list">
                                         <button className="btn__delete" onClick={() => this.deleteFromBookList(index)}>DELETE</button>
                                     </li>
-                                    <li className="table__edit">
-                                        <EditBook isEdit={index === isEdit} database={booklist.find(findItem => findItem.id === item.id)} refresh={this.getDatabase} />
-                                    </li>
                                 </ul>
                             )
                         })}
+                        {
+                            (filteredId !== null && filteredId !== "") ? (
+                                <EditBook isEdit={isEdit} database={booklist.find(findItem => findItem.id === filteredId)} refresh={this.getDatabase} />
+                            ) : ("")
+                        }
+
                     </section>
                 </main>
             </div>

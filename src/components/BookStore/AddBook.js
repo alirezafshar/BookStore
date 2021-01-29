@@ -40,6 +40,7 @@ class AddBook extends Component {
         } else {
             this.setState({ err: false })
             Database.data.push({
+                id: this.state.id,
                 name: this.state.name,
                 price: this.state.price,
                 category: this.state.category,
