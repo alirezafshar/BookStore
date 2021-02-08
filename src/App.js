@@ -6,7 +6,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Route exact path={"/"} component={BookStore} />
+      <Route path={"/"} component={BookStore} />
     </BrowserRouter>
   )
 
