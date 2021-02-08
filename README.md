@@ -1,4 +1,4 @@
-# This Is a React Sample Code For Book Store
+# Book Store Sample: React, css
 
 ## Available Scripts
 
