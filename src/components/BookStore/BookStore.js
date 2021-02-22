@@ -74,7 +74,7 @@ class BookStore extends Component {
                 <main className="main">
                     <section className="btn btn--sideR">
                         <button className="btn__add" onClick={this.addToBookList}>+</button>
-                        <AddBook isAdd={isAdd} refresh={this.getDatabase} />
+                        <AddBook isAdd={isAdd} refresh={this.getDatabase} mode={mode} />
                     </section>
                     <section className={`bookList block${(mode === "light") ? "" : "--dark"}`}>
                         <ul className="table table--label">
@@ -99,7 +99,7 @@ class BookStore extends Component {
                         })}
                         {
                             (filteredId !== null && filteredId !== "") ? (
-                                <EditBook isEdit={isEdit} database={booklist.find(findItem => findItem.id === filteredId)} refresh={this.getDatabase} />
+                                <EditBook isEdit={isEdit} database={booklist.find(findItem => findItem.id === filteredId)} refresh={this.getDatabase} mode={mode} />
                             ) : ("")
                         }
 

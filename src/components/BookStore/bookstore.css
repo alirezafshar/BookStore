@@ -80,6 +80,16 @@ body {
     height: 40px;
 }
 
+.form__control--dark {
+    border: 1px solid #cfcfcf;
+    background-color: #424242;
+    margin: 4px auto;
+    padding: 0 1rem;
+    color: #cfcfcf;
+    width: 100%;
+    height: 40px;
+}
+
 .form__control::placeholder {
     color: #cfcfcf;
 }

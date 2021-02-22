@@ -47,7 +47,7 @@ class EditBook extends Component {
 
     render() {
         const { name, price, category, description, err } = this.state;
-        const { isEdit, refresh } = this.props;
+        const { isEdit, refresh, mode } = this.props;
         if (!isEdit) {
             return false;
         }
@@ -58,21 +58,21 @@ class EditBook extends Component {
                     <fieldset className="form__view">
                         <legend className="form__title">Edit Selected Book</legend>
                         <input
-                            className="form__control"
+                            className={`form__control${(mode === "light") ? "" : "--dark"}`}
                             type="text"
                             placeholder="Name"
                             name="name"
                             value={name || ""}
                             onChange={this.changeHandler} />
                         <input
-                            className="form__control"
+                            className={`form__control${(mode === "light") ? "" : "--dark"}`}
                             type="number"
                             placeholder="Price"
                             name="price"
                             value={price || ""}
                             onChange={this.changeHandler} />
                         <select
-                            className="form__control"
+                            className={`form__control${(mode === "light") ? "" : "--dark"}`}
                             type="text"
                             name="category"
                             value={category || ""}
@@ -85,7 +85,7 @@ class EditBook extends Component {
                             <option value="historical ">historical</option>
                         </select>
                         <textarea
-                            className="form__control form__textarea"
+                            className={`form__control${(mode === "light") ? "" : "--dark"} form__textarea`}
                             type="text"
                             placeholder="Talk more about this book"
                             name="description"
