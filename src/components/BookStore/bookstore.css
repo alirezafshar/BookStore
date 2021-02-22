@@ -21,6 +21,11 @@ body {
     background-color: #ffffff;
 }
 
+.block--dark {
+    border: 1px solid #cfcfcf;
+    background-color: #323232;
+}
+
 .table {
     display: flex;
     justify-content: space-evenly;
@@ -97,7 +102,7 @@ body {
 }
 
 .btn__link {
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
     color: #03a9f4;
     font-size: 0.875rem;
@@ -167,6 +172,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .header {
@@ -177,6 +183,17 @@ body {
 
 .header__title {
     font-size: 1.5rem;
+}
+
+.header__mode {
+    display: flex;
+    align-items: center;
+}
+
+.header__mode--title {
+    margin-right: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: bold;
 }
 
 .main {
